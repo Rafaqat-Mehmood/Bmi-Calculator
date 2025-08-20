@@ -4,4 +4,7 @@
     <string name="rafaqat">Rafaqat Mehmood</string>
     <string name="start">Start</string>
     <string name="your_health_journey_starts_here">Your Health Journey Starts Here</string>
+    <string name="what_is_your_height">What is Your Height ?</string>
+    <string name="height_helps_personalize_workouts_and_trackfitness_progress_accurately">Height helps personalize workouts and \ntrackfitness progress accurately</string>
+    <string name="next">Next</string>
 </resources>

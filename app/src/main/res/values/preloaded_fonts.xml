@@ -2,9 +2,11 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/baloo_chettan_2_extrabold</item>
+        <item>@font/outfit_extrabold</item>
         <item>@font/poppins</item>
         <item>@font/poppins_bold</item>
         <item>@font/poppins_bold_italic</item>
+        <item>@font/poppins_medium</item>
         <item>@font/poppins_semibold</item>
     </array>
 </resources>

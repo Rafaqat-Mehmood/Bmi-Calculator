@@ -6,12 +6,10 @@ import android.os.Looper
 import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.os.postDelayed
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.learnandroiddevelopmentbatch2.R
 import com.example.learnandroiddevelopmentbatch2.databinding.ActivitySplashBinding
-import java.util.logging.Handler
 
 class SplashAct : AppCompatActivity() {
     private lateinit var binding: ActivitySplashBinding
@@ -43,32 +41,33 @@ class SplashAct : AppCompatActivity() {
             {
                 binding.title.text="Shukria For waiting so move to next screen"
                 binding.progressBar.visibility= View.GONE
+                binding.startBtn.visibility= View.VISIBLE
             },
             3000
         )
-
-        android.os.Handler(Looper.getMainLooper()).postDelayed(
-            {
-                //TasK Perform
-
-                var intent= Intent(this@SplashAct, HeightScreen::class.java)
-                startActivity(intent)
-                finish()
-            },
-            7000
-        )
-
-//        binding.apply {
-//            startBtn.setOnClickListener {
-//                // Intent(CurrentAct,TargetAct)
+//
+//        android.os.Handler(Looper.getMainLooper()).postDelayed(
+//            {
+//                //TasK Perform
+//
 //                var intent= Intent(this@SplashAct, HeightScreen::class.java)
 //                startActivity(intent)
 //                finish()
-//
-//                //single line work
-//                //startActivity(Intent(this@SplashAct, HeightScreen::class.java))
-//            }
-//        }
+//            },
+//            7000
+//        )
+
+        binding.apply {
+            startBtn.setOnClickListener {
+                // Intent(CurrentAct,TargetAct)
+                val intent= Intent(this@SplashAct, HeightScreen::class.java)
+                startActivity(intent)
+                finish()
+
+                //single line work
+                //startActivity(Intent(this@SplashAct, HeightScreen::class.java))
+            }
+        }
 
 
     }
