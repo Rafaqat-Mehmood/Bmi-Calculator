@@ -137,6 +137,7 @@ public class MyScaleView extends View {
 			break;
 		case MotionEvent.ACTION_MOVE:
 			movablePoint = event.getY();
+			System.out.println("move");
 			if (downPointClone > movablePoint) {
 				/**
 				 * if user first starts moving downward and then upwards then

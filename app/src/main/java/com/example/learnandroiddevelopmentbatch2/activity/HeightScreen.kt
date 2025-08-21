@@ -1,6 +1,7 @@
 package com.example.learnandroiddevelopmentbatch2.activity
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -9,6 +10,9 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.learnandroiddevelopmentbatch2.R
 import com.example.learnandroiddevelopmentbatch2.databinding.ActivityHeightScreenBinding
+import com.example.learnandroiddevelopmentbatch2.util.MyScaleView
+import com.example.learnandroiddevelopmentbatch2.util.onViewUpdateListener
+import kotlin.math.roundToInt
 
 class HeightScreen : AppCompatActivity() {
     private lateinit var binding: ActivityHeightScreenBinding
@@ -33,6 +37,20 @@ class HeightScreen : AppCompatActivity() {
                 unit.text = "ft"
 
             }
+
+
+            scale.setStartingPoint(165f)
+            hValue.text="165.00"
+            scale.setUpdateListener { result ->
+//                val value = (result * 10f).roundToInt().toFloat() / 10f
+                hValue.setText("%.2f".format(result))
+//                cm = value
+                Log.i("TAG", "onCreate: "+result)
+                Log.i("TAG", "onCreate: "+hValue.getText().toString())
+
+            }
+
+
         }
 
 
