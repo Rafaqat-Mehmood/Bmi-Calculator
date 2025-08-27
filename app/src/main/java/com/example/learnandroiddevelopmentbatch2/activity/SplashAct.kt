@@ -3,6 +3,7 @@ package com.example.learnandroiddevelopmentbatch2.activity
 import android.content.Intent
 import android.os.Bundle
 import android.os.Looper
+import android.util.Log
 import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +11,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.learnandroiddevelopmentbatch2.R
 import com.example.learnandroiddevelopmentbatch2.databinding.ActivitySplashBinding
+import com.example.learnandroiddevelopmentbatch2.util.moveAct
 
 class SplashAct : AppCompatActivity() {
     private lateinit var binding: ActivitySplashBinding
@@ -26,6 +28,13 @@ class SplashAct : AppCompatActivity() {
             insets
         }
 
+
+        // Share PreF GET OR iNITIALIZE
+        val pref=getSharedPreferences("HeightScreenPref",MODE_PRIVATE)
+         var heightValue=pref.getFloat("heightValue",0.5f)
+        var unit=pref.getString("unit","cm")
+
+        Log.i("TAG", "onCreate: ${heightValue}--${unit}")
 
 
         //scope function
@@ -60,9 +69,7 @@ class SplashAct : AppCompatActivity() {
         binding.apply {
             startBtn.setOnClickListener {
                 // Intent(CurrentAct,TargetAct)
-                val intent= Intent(this@SplashAct, HeightScreen::class.java)
-                startActivity(intent)
-                finish()
+                moveAct(this@SplashAct, HeightScreen::class.java)
 
                 //single line work
                 //startActivity(Intent(this@SplashAct, HeightScreen::class.java))

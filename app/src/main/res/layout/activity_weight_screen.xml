@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.HeightScreen">
+    tools:context=".activity.WeightScreen">
 
     <ImageView
         android:id="@+id/imageView"
@@ -18,6 +18,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
+    <ImageView
+        android:id="@+id/backIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/back_arrow"
+        app:layout_constraintVertical_bias="0.03"
+        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <com.example.learnandroiddevelopmentbatch2.util.MyScaleView
         android:id="@+id/scale"
@@ -35,7 +46,7 @@
         android:id="@+id/heading"
         android:layout_width="wrap_content"
         android:layout_height="36dp"
-        android:text="@string/what_is_your_height"
+        android:text="@string/what_is_your_weight"
         android:fontFamily="@font/poppins_bold"
         android:textColor="@color/common_color"
         android:textSize="24sp"
@@ -51,7 +62,7 @@
         android:id="@+id/subDes"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:text="@string/height_helps_personalize_workouts_and_trackfitness_progress_accurately"
+        android:text="@string/knowing_your_weight_helps_us_tailor_n_workouts_track_progress_better"
         android:fontFamily="@font/poppins"
         android:textColor="@color/common__light_color"
         android:textSize="16sp"
@@ -64,57 +75,57 @@
 
 
 
-        <LinearLayout
-            android:id="@+id/unitLayout"
-            android:layout_width="190dp"
-            android:layout_height="50dp"
-            android:orientation="horizontal"
-            android:weightSum="2"
-            android:elevation="0.4dp"
-            android:background="@drawable/common_height_bg"
-            app:layout_constraintStart_toStartOf="@id/subDes"
-            app:layout_constraintTop_toBottomOf="@id/subDes"
-            app:layout_constraintEnd_toEndOf="@id/subDes"
-            app:layout_constraintVertical_bias="0.05"
-            app:layout_constraintBottom_toBottomOf="parent">
+    <LinearLayout
+        android:id="@+id/unitLayout"
+        android:layout_width="190dp"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:elevation="0.4dp"
+        android:background="@drawable/common_height_bg"
+        app:layout_constraintStart_toStartOf="@id/subDes"
+        app:layout_constraintTop_toBottomOf="@id/subDes"
+        app:layout_constraintEnd_toEndOf="@id/subDes"
+        app:layout_constraintVertical_bias="0.05"
+        app:layout_constraintBottom_toBottomOf="parent">
 
-            <TextView
-                android:id="@+id/cm"
-                android:layout_width="match_parent"
-                android:layout_height="36dp"
-                android:paddingStart="@dimen/_5sdp"
-                android:paddingEnd="@dimen/_5sdp"
-                android:paddingBottom="@dimen/_5sdp"
-                android:textSize="24sp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:layout_marginStart="10dp"
-                android:textColor="@color/common__light_color"
-                android:fontFamily="@font/poppins_bold_italic"
-                android:text="cm">
+        <TextView
+            android:id="@+id/kg"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:paddingStart="@dimen/_5sdp"
+            android:paddingEnd="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_1sdp"
+            android:textSize="24sp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/common__light_color"
+            android:fontFamily="@font/poppins_bold_italic"
+            android:text="Kg">
 
-            </TextView>
-            <TextView
-                android:id="@+id/ft"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:paddingStart="@dimen/_5sdp"
-                android:paddingEnd="@dimen/_5sdp"
-                android:paddingBottom="@dimen/_5sdp"
-                android:paddingTop="@dimen/_2sdp"
-                android:textSize="24sp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:layout_marginEnd="10dp"
-                android:textColor="@color/white"
-                android:background="@drawable/ftcm_fill_bg"
-                android:fontFamily="@font/poppins_bold_italic"
-                android:text="ft">
+        </TextView>
+        <TextView
+            android:id="@+id/libs"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:paddingStart="@dimen/_5sdp"
+            android:paddingEnd="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_1sdp"
+            android:paddingTop="@dimen/_1sdp"
+            android:textSize="24sp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginEnd="10dp"
+            android:textColor="@color/white"
+            android:background="@drawable/ftcm_fill_bg"
+            android:fontFamily="@font/poppins_bold_italic"
+            android:text="libs">
 
-            </TextView>
-        </LinearLayout>
+        </TextView>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/hValue"
@@ -145,7 +156,7 @@
         android:fontFamily="@font/poppins_medium"
         android:gravity="center|start|bottom"
         android:singleLine="true"
-        android:text="ft"
+        android:text="kg"
         android:textColor="@color/common__light_color"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="@id/hValue"

@@ -7,4 +7,6 @@
     <string name="what_is_your_height">What is Your Height ?</string>
     <string name="height_helps_personalize_workouts_and_trackfitness_progress_accurately">Height helps personalize workouts and \ntrackfitness progress accurately</string>
     <string name="next">Next</string>
+    <string name="what_is_your_weight">What is Your Weight ?</string>
+    <string name="knowing_your_weight_helps_us_tailor_n_workouts_track_progress_better"><![CDATA[Knowing your weight helps us tailor\n workouts & track progress better]]></string>
 </resources>

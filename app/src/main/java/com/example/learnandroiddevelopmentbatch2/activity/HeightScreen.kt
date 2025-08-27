@@ -1,5 +1,6 @@
 package com.example.learnandroiddevelopmentbatch2.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -11,11 +12,19 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.learnandroiddevelopmentbatch2.R
 import com.example.learnandroiddevelopmentbatch2.databinding.ActivityHeightScreenBinding
 import com.example.learnandroiddevelopmentbatch2.util.MyScaleView
+import com.example.learnandroiddevelopmentbatch2.util.changeUnitBg
+import com.example.learnandroiddevelopmentbatch2.util.moveActNotFinish
 import com.example.learnandroiddevelopmentbatch2.util.onViewUpdateListener
 import kotlin.math.roundToInt
 
 class HeightScreen : AppCompatActivity() {
     private lateinit var binding: ActivityHeightScreenBinding
+
+    companion object{
+        var unitStore=""
+        var storeValue=0f
+
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -27,13 +36,42 @@ class HeightScreen : AppCompatActivity() {
             insets
         }
 
+        //Today Topic
+        // companion object -> data retain app is alive
+        // sharepreference  -> app is alive hay ya nahe hay data retain or save  -> small data store
+
+        //Tomoorow Topic
+        //content provider -> app is alive hay ya nahe hay data retain or save -> large data store small data store
+        // preferecne data store -> app is alive hay ya nahe hay data retain or save -> small data store
+
+        // lARGE aPP
+        // room database -> app is alive hay ya nahe hay data retain or save -> large data store small data store
+        //sql  -> app is alive hay ya nahe hay data retain or save -> large data store small data store
+
+        //Share Preference
+        /* store small value key value pair  like setting light dark , flags , token pdf list etc
+        *
+        *
+        *
+        * */
+
+
+        // Share PreF GET OR iNITIALIZE
+        val pref=getSharedPreferences("DbRef",MODE_PRIVATE)
+
+        // Create editor
+        val editor=pref.edit()
+
+
+
+
         binding.apply {
             cm.setOnClickListener {
-                changeUnitBg(cm,ft)
+                changeUnitBg(this@HeightScreen,cm,ft)
                 unit.text = "cm"
             }
             ft.setOnClickListener {
-                changeUnitBg(ft,cm)
+                changeUnitBg(this@HeightScreen,ft,cm)
                 unit.text = "ft"
 
             }
@@ -42,14 +80,26 @@ class HeightScreen : AppCompatActivity() {
             scale.setStartingPoint(165f)
             hValue.text="165.00"
             scale.setUpdateListener { result ->
-//                val value = (result * 10f).roundToInt().toFloat() / 10f
-                hValue.setText("%.2f".format(result))
-//                cm = value
-                Log.i("TAG", "onCreate: "+result)
-                Log.i("TAG", "onCreate: "+hValue.getText().toString())
+                hValue.text = "%.2f".format(result)
+                storeValue=hValue.text.toString().toFloat()
 
             }
 
+
+            nextBtn.setOnClickListener {
+                unitStore=unit.text.toString()
+
+                // Value set or Save in SharePreference
+                editor.putFloat("heightValue",storeValue)
+                editor.putString("unit",unitStore)
+
+                //Apply Changes or save
+                editor.apply()
+                moveActNotFinish(this@HeightScreen, WeightScreen::class.java)
+
+
+
+            }
 
         }
 
@@ -57,11 +107,4 @@ class HeightScreen : AppCompatActivity() {
 
     }
 
-    private fun changeUnitBg(cm: TextView, ft:TextView) {
-        cm.setBackgroundResource(R.drawable.ftcm_fill_bg)
-        ft.setBackgroundResource(R.drawable.ftcm_whilte_fill_bg)
-        cm.setTextColor(resources.getColor(R.color.white))
-        ft.setTextColor(resources.getColor(R.color.common__light_color))
-
-    }
 }
