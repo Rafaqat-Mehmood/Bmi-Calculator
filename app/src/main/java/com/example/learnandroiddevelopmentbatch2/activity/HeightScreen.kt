@@ -66,6 +66,12 @@ class HeightScreen : AppCompatActivity() {
 
 
         binding.apply {
+            backIcon.setOnClickListener {
+                // Activity Not Recreate Activity
+                finish()
+
+            }
+
             cm.setOnClickListener {
                 changeUnitBg(this@HeightScreen,cm,ft)
                 unit.text = "cm"

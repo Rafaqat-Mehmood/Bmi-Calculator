@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LearnAndroidDevelopmentBatch2">
         <activity
+            android:name=".activity.GenderAct"
+            android:exported="false" />
+        <activity
+            android:name=".activity.Dashboard"
+            android:exported="false" />
+        <activity
             android:name=".activity.AgeScreen"
             android:exported="false" />
         <activity

@@ -7,4 +7,112 @@
     android:layout_height="match_parent"
     tools:context=".activity.AgeScreen">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/splash_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/backIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/back_arrow"
+        app:layout_constraintVertical_bias="0.03"
+        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <com.example.learnandroiddevelopmentbatch2.util.MyScaleView
+        android:id="@+id/scale"
+        android:layout_width="50dp"
+        android:layout_height="349dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/common_height_bg"
+        app:layout_constraintTop_toBottomOf="@id/subDes"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.93"
+        app:layout_constraintBottom_toTopOf="@id/nextBtn">
+
+    </com.example.learnandroiddevelopmentbatch2.util.MyScaleView>
+    <TextView
+        android:id="@+id/heading"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:text="@string/what_is_your_age"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="@color/common_color"
+        android:textSize="24sp"
+        android:singleLine="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:gravity="center"
+        app:layout_constraintVertical_bias="0.08"/>
+
+    <TextView
+        android:id="@+id/subDes"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:text="@string/knowing_your_age_helps_us_tailor_n_workouts_track_progress_better"
+        android:fontFamily="@font/poppins"
+        android:textColor="@color/common__light_color"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/heading"
+        app:layout_constraintEnd_toEndOf="@id/heading"
+        app:layout_constraintTop_toBottomOf="@id/heading"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:gravity="center"
+        app:layout_constraintVertical_bias="0.01"/>
+
+
+
+
+    <TextView
+        android:id="@+id/ageValue"
+        android:layout_width="130dp"
+        android:layout_height="81dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:fontFamily="@font/outfit_extrabold"
+        android:gravity="center"
+        android:paddingStart="@dimen/_5sdp"
+        android:paddingEnd="@dimen/_5sdp"
+        android:paddingBottom="@dimen/_5sdp"
+        android:text="26"
+        android:textColor="@color/common_color"
+        android:textSize="54sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/subDes"
+        app:layout_constraintStart_toStartOf="@+id/subDes"
+        app:layout_constraintTop_toBottomOf="@id/subDes"
+        app:layout_constraintVertical_bias="0.4">
+
+    </TextView>
+
+    
+    <TextView
+        android:id="@+id/nextBtn"
+        android:layout_width="220dp"
+        android:layout_height="54dp"
+        android:background="@drawable/button_shape"
+        android:fontFamily="@font/poppins_semibold"
+        android:gravity="center"
+        android:text="@string/next"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:paddingTop="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ageValue"
+        app:layout_constraintVertical_bias="0.68" />
 </androidx.constraintlayout.widget.ConstraintLayout>

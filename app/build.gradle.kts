@@ -57,5 +57,9 @@ dependencies {
     implementation(libs.sdp.android)    //Button width height
     implementation(libs.ssp.android)    // Text Size
 
+    // Use for Lottie Animation
     implementation("com.airbnb.android:lottie:6.6.6")
+
+    // Use for Circle Image
+    implementation("de.hdodenhof:circleimageview:3.1.0")
 }

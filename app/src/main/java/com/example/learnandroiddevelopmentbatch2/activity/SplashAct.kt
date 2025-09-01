@@ -69,7 +69,7 @@ class SplashAct : AppCompatActivity() {
         binding.apply {
             startBtn.setOnClickListener {
                 // Intent(CurrentAct,TargetAct)
-                moveAct(this@SplashAct, HeightScreen::class.java)
+                moveAct(this@SplashAct, GenderAct::class.java)
 
                 //single line work
                 //startActivity(Intent(this@SplashAct, HeightScreen::class.java))
