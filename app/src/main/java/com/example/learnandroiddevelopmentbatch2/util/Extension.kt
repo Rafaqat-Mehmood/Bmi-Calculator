@@ -10,7 +10,10 @@ import com.example.learnandroiddevelopmentbatch2.R
 fun moveAct(currentAct: Activity, targetAct:Class<*>){
     var intent= Intent(currentAct, targetAct)
     currentAct.startActivity(intent)
+    //Current Activty Finish
     currentAct.finish()
+    // Complete App Finish
+    //currentAct.finishAffinity()
 }
 
 fun moveActNotFinish(currentAct: Activity, targetAct:Class<*>) {

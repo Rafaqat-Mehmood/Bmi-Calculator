@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -17,6 +18,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomNav"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
 
     <ImageView
         android:id="@+id/settingIcon"
@@ -138,6 +155,7 @@
 
     </com.google.android.material.card.MaterialCardView>
 
+<!--    Weight Layout Code-->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/weightInput"
         android:layout_width="154dp"
@@ -218,8 +236,240 @@
         </TextView>
     </LinearLayout>
 
+    <!--    Height Layout Code-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/heightInput"
+        android:layout_width="154dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/height"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusTopStart="15dp"
+        app:boxCornerRadiusTopEnd="15dp"
+        app:boxCornerRadiusBottomStart="15dp"
+        app:boxCornerRadiusBottomEnd="15dp"
+        app:boxStrokeColor="@color/common_color"
+        app:boxStrokeWidth="1dp"
+        app:boxStrokeWidthFocused="2dp"
+        app:hintTextColor="@color/common_color"
+        app:layout_constraintStart_toStartOf="@id/weightInput"
+        app:layout_constraintEnd_toEndOf="@id/weightInput"
+        app:layout_constraintTop_toBottomOf="@id/weightInput"
+        app:layout_constraintVertical_bias="0.1"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/common__light_color"
+            android:inputType="number" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <LinearLayout
+        android:id="@+id/heightUnitLayout"
+        android:layout_width="164dp"
+        android:layout_height="52dp"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:elevation="0.4dp"
+        android:background="@drawable/common_height_bg"
+        app:layout_constraintStart_toStartOf="@id/unitLayout"
+        app:layout_constraintTop_toTopOf="@id/heightInput"
+        app:layout_constraintEnd_toEndOf="@id/unitLayout"
+        app:layout_constraintVertical_bias="0.5"
+        app:layout_constraintBottom_toBottomOf="@id/heightInput">
+
+        <TextView
+            android:id="@+id/cm"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:paddingStart="@dimen/_5sdp"
+            android:paddingEnd="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            android:textSize="22sp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/common__light_color"
+            android:fontFamily="@font/poppins_bold_italic"
+            android:text="cm">
+
+        </TextView>
+        <TextView
+            android:id="@+id/ft"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:paddingStart="@dimen/_5sdp"
+            android:paddingEnd="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            android:paddingTop="@dimen/_2sdp"
+            android:textSize="22sp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginEnd="10dp"
+            android:textColor="@color/white"
+            android:background="@drawable/ftcm_fill_bg"
+            android:fontFamily="@font/poppins_bold_italic"
+            android:text="ft">
+
+        </TextView>
+    </LinearLayout>
+
+    <!--    Age Layout Code-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ageInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/your_age"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusTopStart="15dp"
+        app:boxCornerRadiusTopEnd="15dp"
+        app:boxCornerRadiusBottomStart="15dp"
+        app:boxCornerRadiusBottomEnd="15dp"
+        app:boxStrokeColor="@color/common_color"
+        app:boxStrokeWidth="1dp"
+        app:boxStrokeWidthFocused="2dp"
+        app:hintTextColor="@color/common_color"
+        app:layout_constraintStart_toStartOf="@id/heightInput"
+        app:layout_constraintEnd_toEndOf="@id/heightUnitLayout"
+        app:layout_constraintTop_toBottomOf="@id/heightInput"
+        app:layout_constraintVertical_bias="0.1"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/common__light_color"
+            android:inputType="number" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <TextView
+        android:id="@+id/nextBtn"
+        android:layout_width="220dp"
+        android:layout_height="54dp"
+        android:background="@drawable/button_shape"
+        android:fontFamily="@font/poppins_semibold"
+        android:gravity="center"
+        android:text="@string/next"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:paddingTop="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/ageInput"
+        app:layout_constraintStart_toStartOf="@id/ageInput"
+        app:layout_constraintTop_toBottomOf="@id/ageInput"
+        app:layout_constraintVertical_bias="0.15" />
 
 
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/bottomNav"
+        android:layout_width="0dp"
+        android:layout_height="74dp"
+        app:cardCornerRadius="51dp"
+        app:strokeColor="@color/bottom_stroke_color"
+        android:layout_margin="@dimen/_5sdp"
+        app:cardBackgroundColor="@color/bottom_nav_color"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintVertical_bias="0.05">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:weightSum="3">
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_weight="1">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="130dp"
+                    android:layout_height="52dp"
+                    app:cardCornerRadius="33dp"
+                    app:strokeWidth="0dp"
+                    android:layout_margin="@dimen/_5sdp"
+                    app:cardBackgroundColor="@color/bottom_nav_color">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="26dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/unselected_bmr_icon">
+                    </ImageView>
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_weight="1">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="130dp"
+                    android:layout_height="52dp"
+                    app:cardCornerRadius="33dp"
+                    app:strokeWidth="0dp"
+                    android:layout_margin="@dimen/_5sdp"
+                    app:cardBackgroundColor="@color/common_color">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="26dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/selected_bmi_icon">
+                    </ImageView>
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_weight="1">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="130dp"
+                    android:layout_height="52dp"
+                    app:cardCornerRadius="33dp"
+                    app:strokeWidth="0dp"
+                    android:layout_margin="@dimen/_5sdp"
+                    app:cardBackgroundColor="@color/bottom_nav_color">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="26dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/unselected_blog_icon">
+                    </ImageView>
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
