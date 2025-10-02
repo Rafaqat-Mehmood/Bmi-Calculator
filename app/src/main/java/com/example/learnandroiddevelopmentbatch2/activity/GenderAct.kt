@@ -2,6 +2,7 @@ package com.example.learnandroiddevelopmentbatch2.activity
 
 import android.os.Bundle
 import android.widget.TextView
+import androidx.activity.addCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -10,13 +11,15 @@ import com.example.learnandroiddevelopmentbatch2.R
 import com.example.learnandroiddevelopmentbatch2.activity.HeightScreen.Companion.storeValue
 import com.example.learnandroiddevelopmentbatch2.activity.HeightScreen.Companion.unitStore
 import com.example.learnandroiddevelopmentbatch2.databinding.ActivityGenderBinding
+import com.example.learnandroiddevelopmentbatch2.util.Constant
 import com.example.learnandroiddevelopmentbatch2.util.moveAct
 import com.example.learnandroiddevelopmentbatch2.util.moveActNotFinish
 import com.google.android.material.card.MaterialCardView
 
 class GenderAct : AppCompatActivity() {
     private lateinit var binding: ActivityGenderBinding
-    var gender = "male"
+    private var gender = "male"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityGenderBinding.inflate(layoutInflater)
@@ -51,11 +54,17 @@ class GenderAct : AppCompatActivity() {
 
             nextBtn.setOnClickListener {
                 // Value set or Save in SharePreference
-                editor.putString("gender", gender)
+                editor.putString(Constant.genderKey, gender)
                 //Apply Changes or save
                 editor.apply()
                 moveActNotFinish(this@GenderAct, HeightScreen::class.java)
             }
+        }
+
+
+
+        onBackPressedDispatcher.addCallback {
+            finishAffinity()
         }
     }
 
@@ -68,4 +77,11 @@ class GenderAct : AppCompatActivity() {
         activeText.setTextColor(getResources().getColor(R.color.white))
         inactiveText.setTextColor(getResources().getColor(R.color.common__light_color))
     }
+
+
+    // Deprecated
+//    override fun onBackPressed() {
+//        super.onBackPressed()
+//        finishAffinity()
+//    }
 }

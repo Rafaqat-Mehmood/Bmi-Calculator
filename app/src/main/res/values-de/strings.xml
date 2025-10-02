@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Android Lernen</string>
+    <string name="rafaqat">Rafaqat Mehmood</string>
+    <string name="start">Starten</string>
+    <string name="your_health_journey_starts_here">Ihre Gesundheitsreise beginnt hier</string>
+    <string name="what_is_your_height">Wie groß sind Sie?</string>
+    <string name="select_your_height">Wählen Sie Ihr Geschlecht</string>
+    <string name="height_helps_personalize_workouts_and_trackfitness_progress_accurately">Die Größe hilft, Trainings zu personalisieren und \nFitnessfortschritte genau zu verfolgen</string>
+    <string name="next">Weiter</string>
+    <string name="what_is_your_weight">Wie viel wiegen Sie?</string>
+    <string name="what_is_your_age">Wie alt sind Sie?</string>
+    <string name="knowing_your_weight_helps_us_tailor_n_workouts_track_progress_better"><![CDATA[Wenn wir Ihr Gewicht kennen, können wir\n Trainings anpassen und Fortschritte besser verfolgen]]></string>
+    <string name="knowing_your_age_helps_us_tailor_n_workouts_track_progress_better"><![CDATA[Wenn wir Ihr Alter kennen, können wir\n Trainings anpassen und Fortschritte besser verfolgen]]></string>
+    <string name="male">Männlich</string>
+    <string name="female">Weiblich</string>
+    <string name="weight">Gewicht</string>
+    <string name="height">Größe</string>
+    <string name="your_age">Ihr Alter</string>
+    <string name="welcome_to_bmi_calculator">Willkommen beim BMI-Rechner</string>
+    <string name="rate_us">Bewerten Sie uns</string>
+    <string name="share_app">App teilen</string>
+    <string name="privacy_policy">Datenschutzrichtlinie</string>
+    <string name="more_apps">Weitere Apps</string>
+
+
+</resources>

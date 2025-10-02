@@ -19,22 +19,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/bottomNav"
-        android:layout_marginBottom="@dimen/_10sdp"
-        android:fillViewport="true">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
-
     <ImageView
         android:id="@+id/settingIcon"
         android:layout_width="55dp"
@@ -48,6 +32,38 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:text="@string/bmi_calculator"
+        android:gravity="center|end"
+        android:paddingEnd="90dp"
+        android:textSize="15sp"
+        android:fontFamily="@font/poppins_medium"
+        android:textColor="@color/common_color"
+        app:layout_constraintBottom_toBottomOf="@id/settingIcon"
+        app:layout_constraintEnd_toStartOf="@id/settingIcon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/settingIcon"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/settingIcon"
+        app:layout_constraintBottom_toTopOf="@id/bottomNav"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+
+
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/maleCard"
         android:layout_width="154dp"
@@ -58,7 +74,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/settingIcon"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintVertical_bias="0.05">
 
@@ -162,10 +178,10 @@
         android:layout_height="wrap_content"
         android:hint="@string/weight"
         app:boxBackgroundMode="outline"
-        app:boxCornerRadiusTopStart="15dp"
-        app:boxCornerRadiusTopEnd="15dp"
-        app:boxCornerRadiusBottomStart="15dp"
-        app:boxCornerRadiusBottomEnd="15dp"
+        app:boxCornerRadiusTopStart="25dp"
+        app:boxCornerRadiusTopEnd="25dp"
+        app:boxCornerRadiusBottomStart="25dp"
+        app:boxCornerRadiusBottomEnd="25dp"
         app:boxStrokeColor="@color/common_color"
         app:boxStrokeWidth="1dp"
         app:boxStrokeWidthFocused="2dp"
@@ -180,6 +196,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:maxLength="6"
             android:textColor="@color/common__light_color"
             android:inputType="number" />
 
@@ -243,10 +260,10 @@
         android:layout_height="wrap_content"
         android:hint="@string/height"
         app:boxBackgroundMode="outline"
-        app:boxCornerRadiusTopStart="15dp"
-        app:boxCornerRadiusTopEnd="15dp"
-        app:boxCornerRadiusBottomStart="15dp"
-        app:boxCornerRadiusBottomEnd="15dp"
+        app:boxCornerRadiusTopStart="25dp"
+        app:boxCornerRadiusTopEnd="25dp"
+        app:boxCornerRadiusBottomStart="25dp"
+        app:boxCornerRadiusBottomEnd="25dp"
         app:boxStrokeColor="@color/common_color"
         app:boxStrokeWidth="1dp"
         app:boxStrokeWidthFocused="2dp"
@@ -261,6 +278,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:maxLength="6"
             android:textColor="@color/common__light_color"
             android:inputType="number" />
 
@@ -401,6 +419,7 @@
                 android:layout_weight="1">
 
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/bmrCard"
                     android:layout_width="130dp"
                     android:layout_height="52dp"
                     app:cardCornerRadius="33dp"
@@ -424,6 +443,7 @@
                 android:layout_weight="1">
 
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/bmiCard"
                     android:layout_width="130dp"
                     android:layout_height="52dp"
                     app:cardCornerRadius="33dp"
@@ -447,6 +467,7 @@
                 android:layout_weight="1">
 
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/blogCard"
                     android:layout_width="130dp"
                     android:layout_height="52dp"
                     app:cardCornerRadius="33dp"

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">学习安卓</string>
+    <string name="rafaqat">拉法卡特·梅赫穆德</string>
+    <string name="start">开始</string>
+    <string name="your_health_journey_starts_here">您的健康之旅从这里开始</string>
+    <string name="what_is_your_height">您的身高是多少？</string>
+    <string name="select_your_height">请选择您的性别</string>
+    <string name="height_helps_personalize_workouts_and_trackfitness_progress_accurately">身高有助于个性化锻炼并准确跟踪健身进展</string>
+    <string name="next">下一步</string>
+    <string name="what_is_your_weight">您的体重是多少？</string>
+    <string name="what_is_your_age">您的年龄是多少？</string>
+    <string name="knowing_your_weight_helps_us_tailor_n_workouts_track_progress_better"><![CDATA[了解您的体重有助于我们定制锻炼并更好地跟踪进展]]></string>
+    <string name="knowing_your_age_helps_us_tailor_n_workouts_track_progress_better"><![CDATA[了解您的年龄有助于我们定制锻炼并更好地跟踪进展]]></string>
+    <string name="male">男</string>
+    <string name="female">女</string>
+    <string name="weight">体重</string>
+    <string name="height">身高</string>
+    <string name="your_age">您的年龄</string>
+    <string name="welcome_to_bmi_calculator">欢迎使用 BMI 计算器</string>
+    <string name="rate_us">给我们评分</string>
+    <string name="share_app">分享应用</string>
+    <string name="privacy_policy">隐私政策</string>
+    <string name="more_apps">更多应用</string>
+
+</resources>

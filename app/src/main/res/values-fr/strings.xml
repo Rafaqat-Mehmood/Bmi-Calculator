@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Apprendre Android</string>
+    <string name="rafaqat">Rafaqat Mehmood</string>
+    <string name="start">Commencer</string>
+    <string name="your_health_journey_starts_here">Votre parcours santé commence ici</string>
+    <string name="what_is_your_height">Quelle est votre taille ?</string>
+    <string name="select_your_height">Sélectionnez votre sexe</string>
+    <string name="height_helps_personalize_workouts_and_trackfitness_progress_accurately">La taille aide à personnaliser les entraînements et à \nsuivre les progrès de fitness avec précision</string>
+    <string name="next">Suivant</string>
+    <string name="what_is_your_weight">Quel est votre poids ?</string>
+    <string name="what_is_your_age">Quel est votre âge ?</string>
+    <string name="knowing_your_weight_helps_us_tailor_n_workouts_track_progress_better"><![CDATA[Savoir votre poids nous aide à adapter\n les entraînements et à mieux suivre vos progrès]]></string>
+    <string name="knowing_your_age_helps_us_tailor_n_workouts_track_progress_better"><![CDATA[Savoir votre âge nous aide à adapter\n les entraînements et à mieux suivre vos progrès]]></string>
+    <string name="male">Homme</string>
+    <string name="female">Femme</string>
+    <string name="weight">Poids</string>
+    <string name="height">Taille</string>
+    <string name="your_age">Votre âge</string>
+    <string name="welcome_to_bmi_calculator">Bienvenue dans le Calculateur IMC</string>
+    <string name="rate_us">Évaluez-nous</string>
+    <string name="share_app">Partager l\'application</string>
+    <string name="privacy_policy">Politique de confidentialité</string>
+    <string name="more_apps">Plus d’applications</string>
+
+
+</resources>

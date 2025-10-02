@@ -11,6 +11,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.learnandroiddevelopmentbatch2.R
 import com.example.learnandroiddevelopmentbatch2.databinding.ActivitySplashBinding
+import com.example.learnandroiddevelopmentbatch2.util.Constant
 import com.example.learnandroiddevelopmentbatch2.util.moveAct
 
 class SplashAct : AppCompatActivity() {
@@ -19,7 +20,7 @@ class SplashAct : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding= ActivitySplashBinding.inflate(layoutInflater)
+        binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -28,51 +29,30 @@ class SplashAct : AppCompatActivity() {
             insets
         }
 
-
         // Share PreF GET OR iNITIALIZE
-        val pref=getSharedPreferences("HeightScreenPref",MODE_PRIVATE)
-         var heightValue=pref.getFloat("heightValue",0.5f)
-        var unit=pref.getString("unit","cm")
-
-        Log.i("TAG", "onCreate: ${heightValue}--${unit}")
-
-
-        //scope function
-        // click lister
-        /*Intent
-         -> One Act to Another Act Explicit Intent
-         -> Out Of App Implicit Intent -> code android studio button dialer
-         */
-        // Thread or Handler
+        val pref = getSharedPreferences("DbRef", MODE_PRIVATE)
 
 
         android.os.Handler(Looper.getMainLooper()).postDelayed(
             {
-                binding.title.text="Shukria For waiting so move to next screen"
-                binding.progressBar.visibility= View.GONE
-                binding.startBtn.visibility= View.VISIBLE
+                binding.title.text = "Shukria For Waiting"
+                binding.progressBar.visibility = View.GONE
+                binding.startBtn.visibility = View.VISIBLE
             },
             3000
         )
-//
-//        android.os.Handler(Looper.getMainLooper()).postDelayed(
-//            {
-//                //TasK Perform
-//
-//                var intent= Intent(this@SplashAct, HeightScreen::class.java)
-//                startActivity(intent)
-//                finish()
-//            },
-//            7000
-//        )
 
         binding.apply {
             startBtn.setOnClickListener {
-                // Intent(CurrentAct,TargetAct)
-                moveAct(this@SplashAct, GenderAct::class.java)
+                if (pref.getBoolean(Constant.finishFirstTime, false)) {
+                    moveAct(this@SplashAct, Dashboard::class.java)
 
-                //single line work
-                //startActivity(Intent(this@SplashAct, HeightScreen::class.java))
+                } else {
+                    moveAct(this@SplashAct, GenderAct::class.java)
+
+                }
+
+
             }
         }
 

@@ -12,16 +12,33 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LearnAndroidDevelopmentBatch2">
         <activity
+            android:name=".activity.BlogAct"
+            android:exported="false" />
+        <!-- Activity -->
+        <!-- Service -->
+        <!-- Broadcast -->
+        <!-- ContentProvider -->
+        <!-- Ad id -->
+        <!-- Font -->
+        <activity
+            android:name=".activity.BmrAct"
+            android:exported="false" />
+        <activity
+            android:name=".activity.SettingAct"
+            android:exported="false" />
+        <activity
             android:name=".activity.GenderAct"
             android:exported="false" />
         <activity
             android:name=".activity.Dashboard"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="true">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name=".activity.AgeScreen"
@@ -44,11 +61,11 @@
             android:name=".activity.SplashAct"
             android:exported="true"
             android:screenOrientation="portrait">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".activity.MainActivity"
