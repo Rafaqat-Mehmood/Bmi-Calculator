@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Learn Android </string>
-
     <string name="rafaqat">Rafaqat Mehmood</string>
     <string name="start">Start</string>
     <string name="your_health_journey_starts_here">Your Health Journey Starts Here</string>
@@ -17,4 +16,11 @@
     <string name="weight">Weight</string>
     <string name="height">Height</string>
     <string name="your_age">Your Age</string>
+    <string name="welcome_to_bmi_calculator">Welcome to Bmi Calculator</string>
+    <string name="rate_us">Rate Us</string>
+    <string name="share_app">Share App</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="more_apps">More Apps</string>
+    <string name="go_back_to_start_sscreen">Go Back To Start Sscreen</string>
+    <string name="notification">Notification</string>
 </resources>

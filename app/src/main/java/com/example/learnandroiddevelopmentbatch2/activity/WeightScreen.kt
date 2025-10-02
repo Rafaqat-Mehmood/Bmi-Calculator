@@ -1,5 +1,6 @@
 package com.example.learnandroiddevelopmentbatch2.activity
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
@@ -11,6 +12,7 @@ import com.example.learnandroiddevelopmentbatch2.R
 import com.example.learnandroiddevelopmentbatch2.activity.HeightScreen.Companion.storeValue
 import com.example.learnandroiddevelopmentbatch2.activity.HeightScreen.Companion.unitStore
 import com.example.learnandroiddevelopmentbatch2.databinding.ActivityWeightScreenBinding
+import com.example.learnandroiddevelopmentbatch2.util.Constant
 import com.example.learnandroiddevelopmentbatch2.util.changeUnitBg
 import com.example.learnandroiddevelopmentbatch2.util.moveActNotFinish
 
@@ -65,8 +67,8 @@ class WeightScreen : AppCompatActivity() {
                 unitStore=unit.text.toString()
 
                 // Value set or Save in SharePreference
-                editor.putFloat("weightValue",storeValue)
-                editor.putString("weightUnit",unitStore)
+                editor.putFloat(Constant.weightValueKey,storeValue)
+                editor.putString(Constant.weightUnitKey,unitStore)
 
                 //Apply Changes or save
                 editor.apply()

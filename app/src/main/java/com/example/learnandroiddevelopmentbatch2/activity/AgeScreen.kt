@@ -10,6 +10,8 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.learnandroiddevelopmentbatch2.R
 import com.example.learnandroiddevelopmentbatch2.activity.HeightScreen.Companion.storeValue
 import com.example.learnandroiddevelopmentbatch2.databinding.ActivityAgeScreenBinding
+import com.example.learnandroiddevelopmentbatch2.util.Constant
+import com.example.learnandroiddevelopmentbatch2.util.moveAct
 import com.example.learnandroiddevelopmentbatch2.util.moveActNotFinish
 
 class AgeScreen : AppCompatActivity() {
@@ -45,9 +47,9 @@ class AgeScreen : AppCompatActivity() {
             }
 
             nextBtn.setOnClickListener {it->
-                editor.putInt("ageValue",ageValue.text.toString().toInt())
+                editor.putInt(Constant.ageValueKey,ageValue.text.toString().toInt())
                 editor.apply()
-                moveActNotFinish(this@AgeScreen, Dashboard::class.java)
+                moveAct(this@AgeScreen, Dashboard::class.java)
             }
 
 

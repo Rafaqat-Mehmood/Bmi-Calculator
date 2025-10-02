@@ -14,15 +14,11 @@ import com.example.learnandroiddevelopmentbatch2.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    //variables declare
-    // Button or view declare
-    // service or boradcast declare
-    // method declare
-    // result declare
-
     private val TAG = "MainActivity"
-
     private lateinit var binding: ActivityMainBinding
+
+
+
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -30,14 +26,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // initialize any thing
-        // logic for any thing
-
-
-        // MVC   Model View Controller    Small Project -> printer -> translator -pdf - voice app -> tracker ->Testing Complex
-        // MVP  Model View Presenter
-        // MVVM Model View ViewModel      Large Complex Project -> Ubber Bykia Food deliver expnese manager  -> Testing best single modle
-        // MVI Model View Intent
+       // initialization
+        // Logic Building Work
 
        binding.apply {
            clickMe.setOnClickListener {

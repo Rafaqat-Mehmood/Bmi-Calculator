@@ -1,4 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">"Learn Android "</string>
+    <string name="app_name">Androidを学ぶ</string>
+    <string name="rafaqat">Rafaqat Mehmood</string>
+    <string name="start">開始</string>
+    <string name="your_health_journey_starts_here">あなたの健康の旅はここから始まります</string>
+    <string name="what_is_your_height">あなたの身長は？</string>
+    <string name="select_your_height">性別を選択してください</string>
+    <string name="height_helps_personalize_workouts_and_trackfitness_progress_accurately">身長はトレーニングを個別化し、\nフィットネスの進捗を正確に追跡するのに役立ちます</string>
+    <string name="next">次へ</string>
+    <string name="what_is_your_weight">あなたの体重は？</string>
+    <string name="what_is_your_age">あなたの年齢は？</string>
+    <string name="knowing_your_weight_helps_us_tailor_n_workouts_track_progress_better"><![CDATA[体重を知ることで、トレーニングを調整し\n進捗をよりよく追跡できます]]></string>
+    <string name="knowing_your_age_helps_us_tailor_n_workouts_track_progress_better"><![CDATA[年齢を知ることで、トレーニングを調整し\n進捗をよりよく追跡できます]]></string>
+    <string name="male">男性</string>
+    <string name="female">女性</string>
+    <string name="weight">体重</string>
+    <string name="height">身長</string>
+    <string name="your_age">あなたの年齢</string>
+    <string name="welcome_to_bmi_calculator">BMI計算機へようこそ</string>
+    <string name="rate_us">評価する</string>
+    <string name="share_app">アプリを共有</string>
+    <string name="privacy_policy">プライバシーポリシー</string>
+    <string name="more_apps">その他のアプリ</string>
+
 </resources>

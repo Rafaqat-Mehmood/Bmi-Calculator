@@ -11,6 +11,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.learnandroiddevelopmentbatch2.R
 import com.example.learnandroiddevelopmentbatch2.databinding.ActivityHeightScreenBinding
+import com.example.learnandroiddevelopmentbatch2.util.Constant
 import com.example.learnandroiddevelopmentbatch2.util.MyScaleView
 import com.example.learnandroiddevelopmentbatch2.util.changeUnitBg
 import com.example.learnandroiddevelopmentbatch2.util.moveActNotFinish
@@ -22,7 +23,7 @@ class HeightScreen : AppCompatActivity() {
 
     companion object{
         var unitStore=""
-        var storeValue=0f
+        var storeValue=165.00f
 
     }
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,24 +37,7 @@ class HeightScreen : AppCompatActivity() {
             insets
         }
 
-        //Today Topic
-        // companion object -> data retain app is alive
-        // sharepreference  -> app is alive hay ya nahe hay data retain or save  -> small data store
 
-        //Tomoorow Topic
-        //content provider -> app is alive hay ya nahe hay data retain or save -> large data store small data store
-        // preferecne data store -> app is alive hay ya nahe hay data retain or save -> small data store
-
-        // lARGE aPP
-        // room database -> app is alive hay ya nahe hay data retain or save -> large data store small data store
-        //sql  -> app is alive hay ya nahe hay data retain or save -> large data store small data store
-
-        //Share Preference
-        /* store small value key value pair  like setting light dark , flags , token pdf list etc
-        *
-        *
-        *
-        * */
 
 
         // Share PreF GET OR iNITIALIZE
@@ -96,8 +80,8 @@ class HeightScreen : AppCompatActivity() {
                 unitStore=unit.text.toString()
 
                 // Value set or Save in SharePreference
-                editor.putFloat("heightValue",storeValue)
-                editor.putString("unit",unitStore)
+                editor.putFloat(Constant.heightValueKey,storeValue)
+                editor.putString(Constant.heightUnitKey,unitStore)
 
                 //Apply Changes or save
                 editor.apply()
