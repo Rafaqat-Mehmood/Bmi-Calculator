@@ -26,4 +26,7 @@
     <string name="bmr_calculator">BMR Calculator</string>
     <string name="bmi_calculator">BMI Calculator</string>
     <string name="blog">Blog Screen</string>
+    <string name="blog_description">Blog Description</string>
+    <string name="blog_time">Blog Time</string>
+    <string name="blog_details">Blog Details</string>
 </resources>
