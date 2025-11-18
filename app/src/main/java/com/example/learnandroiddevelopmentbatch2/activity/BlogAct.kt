@@ -32,6 +32,7 @@ class BlogAct : AppCompatActivity(), MainMenuListener, SubMenuListener {
     private lateinit var subMeneAdp: SubMenuBlogAdapter
     private lateinit var subMenuList:ArrayList<SubMenuBlogModel>
 
+    var storeName="BMI"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -73,6 +74,7 @@ class BlogAct : AppCompatActivity(), MainMenuListener, SubMenuListener {
         Log.i("TAG", "Actiivty: "+model.image)
 
         setAdapter(model.title)
+        storeName=model.title
 
 
     }
@@ -82,6 +84,7 @@ class BlogAct : AppCompatActivity(), MainMenuListener, SubMenuListener {
 
         var intent= Intent(this@BlogAct, BlogDetailAct::class.java)
         intent.putExtra("model",model)
+        intent.putExtra("storeName",storeName)
         startActivity(intent)
     }
 

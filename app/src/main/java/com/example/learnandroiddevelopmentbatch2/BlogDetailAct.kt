@@ -31,10 +31,12 @@ class BlogDetailAct : AppCompatActivity() {
         }
 
         val model = intent.getParcelableExtra<SubMenuBlogModel>("model")
+        val storeName = intent.getStringExtra("storeName")
 
         // Load JSON once
         val bmiJsonString = readFromRaw(R.raw.bmi_blog)
         val bmrJsonString = readFromRaw(R.raw.bmr_blog)
+
         bmiJsonArray = JSONArray(bmiJsonString)
         bmrJsonArray = JSONArray(bmrJsonString)
 
@@ -47,12 +49,15 @@ class BlogDetailAct : AppCompatActivity() {
             if (model != null) {
 
                 blogIcon.setImageResource(model.image)
-//                blogTime.text=model.time
-//                blogDescription.text=model.mainHeading
+                if (storeName=="BMI") {
+                    showUserById(model.id,bmiJsonArray)
+                }
+                else
+                {
+                    showUserById(model.id,bmrJsonArray)
 
-                   showUserById(model.id)
-//                Log.i("TAG", "Time: ${model.time}")
-//                Log.i("TAG", "Heading: ${model.mainHeading}")
+                }
+
             }
 
         }
@@ -60,9 +65,9 @@ class BlogDetailAct : AppCompatActivity() {
     }
 
     @RequiresApi(Build.VERSION_CODES.N)
-    private fun showUserById(id: Int) {
-        for (i in 0 until bmiJsonArray.length()) {
-            val user = bmiJsonArray.getJSONObject(i)
+    private fun showUserById(id: Int,jsonArray: JSONArray) {
+        for (i in 0 until jsonArray.length()) {
+            val user = jsonArray.getJSONObject(i)
             if (user.getInt("id") == id) {
                 val title = user.getString("title")
                 val readTime = user.getString("read_time")
