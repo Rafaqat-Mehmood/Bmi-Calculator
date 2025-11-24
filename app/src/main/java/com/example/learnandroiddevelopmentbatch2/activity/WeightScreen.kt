@@ -18,6 +18,8 @@ import com.example.learnandroiddevelopmentbatch2.util.moveActNotFinish
 
 class WeightScreen : AppCompatActivity() {
     private lateinit var binding: ActivityWeightScreenBinding
+    private var baseWeightKg = 0f
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityWeightScreenBinding.inflate(layoutInflater)
@@ -32,9 +34,18 @@ class WeightScreen : AppCompatActivity() {
         // Share PreF GET OR iNITIALIZE
         val pref=getSharedPreferences("DbRef",MODE_PRIVATE)
 
-
         // Create editor
         val editor=pref.edit()
+
+        val savedWeight = pref.getFloat(Constant.weightValueKey, 60f)
+        val savedUnit = pref.getString(Constant.weightUnitKey, "kg")!!
+
+        if (savedUnit == "kg") {
+            baseWeightKg = savedWeight
+        } else {
+            baseWeightKg = lbsToKg(savedWeight)
+        }
+
 
         //windsurf plugin auto code
         binding.apply {
@@ -45,33 +56,95 @@ class WeightScreen : AppCompatActivity() {
                 //intent app activity recreate
             }
 
-            kg.setOnClickListener {
-                changeUnitBg(this@WeightScreen,kg,libs)
+            if (savedUnit == "kg") {
+                changeUnitBg(this@WeightScreen, kg, libs)
                 unit.text = "kg"
+                scale.setStartingPoint(savedWeight)
+                hValue.text = "%.2f".format(savedWeight)
+
+            } else {
+                changeUnitBg(this@WeightScreen, libs, kg)
+                unit.text = "lbs"
+                scale.setStartingPoint(savedWeight)
+                hValue.text = "%.2f".format(savedWeight)
             }
+
+            storeValue = savedWeight
+            unitStore = savedUnit
+
+
+//            kg.setOnClickListener {
+//                changeUnitBg(this@WeightScreen,kg,libs)
+//                unit.text = "kg"
+//            }
+//            libs.setOnClickListener {
+//                changeUnitBg(this@WeightScreen,libs,kg)
+//                unit.text = "libs"
+//
+//            }
+
+
+
+            kg.setOnClickListener {
+                changeUnitBg(this@WeightScreen, kg, libs)
+                unit.text = "kg"
+
+                scale.setStartingPoint(baseWeightKg)
+                hValue.text = "%.2f".format(baseWeightKg)
+
+                storeValue = baseWeightKg
+            }
+
             libs.setOnClickListener {
-                changeUnitBg(this@WeightScreen,libs,kg)
-                unit.text = "libs"
+                changeUnitBg(this@WeightScreen, libs, kg)
+                unit.text = "lbs"
 
+                val lbsValue = kgToLbs(baseWeightKg)
+
+                scale.setStartingPoint(lbsValue)
+                hValue.text = "%.2f".format(lbsValue)
+
+                storeValue = lbsValue
             }
 
-            scale.setStartingPoint(165f)
-            hValue.text="165.00"
+
+
+            scale.setStartingPoint(60f)
+            hValue.text="60.00"
+//            scale.setUpdateListener { result ->
+//                hValue.text = "%.2f".format(result)
+//                storeValue=hValue.text.toString().toFloat()
+//
+//            }
             scale.setUpdateListener { result ->
-                hValue.text = "%.2f".format(result)
-                storeValue=hValue.text.toString().toFloat()
 
+                if (unit.text == "kg") {
+                    baseWeightKg = result
+                    hValue.text = "%.2f".format(result)
+                    storeValue = result
+
+                } else {
+                    // result is in lbs UI → convert to base kg
+                    baseWeightKg = lbsToKg(result)
+                    val lbsValue = result
+                    hValue.text = "%.2f".format(lbsValue)
+                    storeValue = lbsValue
+                }
             }
+
+
+
 
             nextBtn.setOnClickListener {
-                unitStore=unit.text.toString()
+                if (unit.text == "kg") {
+                    editor.putFloat(Constant.weightValueKey, baseWeightKg)
+                } else {
+                    editor.putFloat(Constant.weightValueKey, kgToLbs(baseWeightKg))
+                }
 
-                // Value set or Save in SharePreference
-                editor.putFloat(Constant.weightValueKey,storeValue)
-                editor.putString(Constant.weightUnitKey,unitStore)
-
-                //Apply Changes or save
+                editor.putString(Constant.weightUnitKey, unit.text.toString())
                 editor.apply()
+
                 moveActNotFinish(this@WeightScreen, AgeScreen::class.java)
 
 
@@ -81,6 +154,15 @@ class WeightScreen : AppCompatActivity() {
 
         }
     }
+
+    private fun kgToLbs(kg: Float): Float {
+        return kg * 2.20462f
+    }
+
+    private fun lbsToKg(lbs: Float): Float {
+        return lbs / 2.20462f
+    }
+
 
 
 }

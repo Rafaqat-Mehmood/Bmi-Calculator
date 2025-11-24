@@ -33,10 +33,7 @@
             android:exported="false" />
         <activity
             android:name=".activity.GenderAct"
-            android:exported="false" />
-        <activity
-            android:name=".activity.Dashboard"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -44,8 +41,19 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".activity.Dashboard"
+            android:exported="true">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
+        <activity
             android:name=".activity.AgeScreen"
-            android:exported="false" />
+            android:exported="true" >
+
+        </activity>
         <activity
             android:name=".activity.WeightScreen"
             android:exported="false" />

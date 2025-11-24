@@ -21,11 +21,12 @@ import kotlin.math.roundToInt
 class HeightScreen : AppCompatActivity() {
     private lateinit var binding: ActivityHeightScreenBinding
 
-    companion object{
-        var unitStore=""
-        var storeValue=165.00f
+    companion object {
+        var unitStore = "cm"
+        var storeValue = 165.00f
 
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -38,54 +39,82 @@ class HeightScreen : AppCompatActivity() {
         }
 
 
-
-
         // Share PreF GET OR iNITIALIZE
-        val pref=getSharedPreferences("DbRef",MODE_PRIVATE)
+        val pref = getSharedPreferences("DbRef", MODE_PRIVATE)
 
         // Create editor
-        val editor=pref.edit()
-
-
+        val editor = pref.edit()
 
 
         binding.apply {
+
+
             backIcon.setOnClickListener {
                 // Activity Not Recreate Activity
                 finish()
 
             }
 
+
+            // Initial
+            scale.setStartingPoint(storeValue)
+            hValue.text = "%.2f".format(storeValue)
+
+
+            // Internal storage always in cm
+            var storeValueCm = 165f
+
+            // Flag to ignore programmatic updates
+            var isUpdatingScale = false
+
             cm.setOnClickListener {
-                changeUnitBg(this@HeightScreen,cm,ft)
-                unit.text = "cm"
+                if (unit.text != "cm") {
+                    unit.text = "cm"
+                    isUpdatingScale = true
+                    // Use internal cm value to set scale
+                    scale.setStartingPoint(storeValueCm)
+                    hValue.text = "%.2f".format(storeValueCm)
+                    changeUnitBg(this@HeightScreen, cm, ft)
+                }
             }
+
             ft.setOnClickListener {
-                changeUnitBg(this@HeightScreen,ft,cm)
-                unit.text = "ft"
-
+                if (unit.text != "ft") {
+                    unit.text = "ft"
+                    isUpdatingScale = true
+                    val displayFt = cmToFeet(storeValueCm)
+                    scale.setStartingPoint(displayFt)
+                    hValue.text = "%.2f".format(displayFt)
+                    changeUnitBg(this@HeightScreen, ft, cm)
+                }
             }
 
-
-            scale.setStartingPoint(165f)
-            hValue.text="165.00"
             scale.setUpdateListener { result ->
+                if (isUpdatingScale) {
+                    // This callback was triggered by setStartingPoint
+                    isUpdatingScale = false
+                    return@setUpdateListener
+                }
+                // Only update internal cm value when user moves the scale
+                storeValueCm = if (unit.text == "cm") result else feetToCm(result)
                 hValue.text = "%.2f".format(result)
-                storeValue=hValue.text.toString().toFloat()
-
             }
+
 
 
             nextBtn.setOnClickListener {
-                unitStore=unit.text.toString()
+                nextBtn.setOnClickListener {
+                    unitStore = unit.text.toString()
 
-                // Value set or Save in SharePreference
-                editor.putFloat(Constant.heightValueKey,storeValue)
-                editor.putString(Constant.heightUnitKey,unitStore)
+                    val valueToSave = if (unitStore == "cm") storeValueCm else cmToFeet(storeValueCm)
 
-                //Apply Changes or save
-                editor.apply()
-                moveActNotFinish(this@HeightScreen, WeightScreen::class.java)
+                    // Save value and unit
+                    editor.putFloat(Constant.heightValueKey, valueToSave)
+                    editor.putString(Constant.heightUnitKey, unitStore)
+
+                    editor.apply()
+                    moveActNotFinish(this@HeightScreen, WeightScreen::class.java)
+                }
 
 
 
@@ -94,7 +123,16 @@ class HeightScreen : AppCompatActivity() {
         }
 
 
-
     }
+
+
+    private fun cmToFeet(cm: Float): Float {
+        return cm / 30.48f      // 1 foot = 30.48 cm
+    }
+
+    private fun feetToCm(feet: Float): Float {
+        return feet * 30.48f
+    }
+
 
 }

@@ -1,5 +1,6 @@
 package com.example.learnandroiddevelopmentbatch2.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -11,11 +12,21 @@ import com.example.learnandroiddevelopmentbatch2.activity.Dashboard.Companion.ge
 import com.example.learnandroiddevelopmentbatch2.databinding.ActivityBmrBinding
 import com.example.learnandroiddevelopmentbatch2.util.Constant
 import com.example.learnandroiddevelopmentbatch2.util.changeUnitBg
+import com.example.learnandroiddevelopmentbatch2.util.moveAct
 import com.example.learnandroiddevelopmentbatch2.util.moveActNotFinish
 import com.google.android.material.card.MaterialCardView
 
 class BmrAct : AppCompatActivity() {
     private lateinit var binding: ActivityBmrBinding
+
+    // Height
+    private fun cmToFeet(cm: Float): Float = cm / 30.48f
+    private fun feetToCm(ft: Float): Float = ft * 30.48f
+
+    // Weight
+    private fun kgToLbs(kg: Float): Float = kg * 2.20462f
+    private fun lbsToKg(lbs: Float): Float = lbs / 2.20462f
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -44,7 +55,10 @@ class BmrAct : AppCompatActivity() {
         editor.putBoolean(Constant.finishFirstTime, true)
         //Apply Changes or save
         editor.apply()
-        
+
+        var heightCm = heightValue  // always store internal height in cm
+        var weightKg = weightValue  // always store internal weight in kg
+
         
         binding.apply {
 
@@ -92,22 +106,48 @@ class BmrAct : AppCompatActivity() {
 
             }
 
-            //Weight Units
-            kg.setOnClickListener {
-                changeUnitBg(this@BmrAct,kg,libs)
-            }
-            libs.setOnClickListener {
-                changeUnitBg(this@BmrAct,libs,kg)
 
-            }
-
-            //Height Units
+            // Height Units
             cm.setOnClickListener {
-                changeUnitBg(this@BmrAct,cm,ft)
+                if (heightInput.editText?.text.toString().isNotEmpty() && ft.text != "cm") {
+                    val currentFt = heightInput.editText?.text.toString().toFloat()
+                    heightCm = feetToCm(currentFt)
+                    heightInput.editText?.setText("%.2f".format(heightCm))
+                    heightInput.hint = "Height (cm)"  // Set suffix
+                    changeUnitBg(this@BmrAct, cm, ft)
+                }
             }
-            ft.setOnClickListener {
-                changeUnitBg(this@BmrAct,ft,cm)
 
+            ft.setOnClickListener {
+                if (heightInput.editText?.text.toString().isNotEmpty() && cm.text != "ft") {
+                    val displayFt = cmToFeet(heightCm)
+                    heightInput.editText?.setText("%.2f".format(displayFt))
+                    heightInput.hint = "Height (ft)"  // Set suffix
+
+                    changeUnitBg(this@BmrAct, ft, cm)
+                }
+            }
+
+// Weight Units
+            kg.setOnClickListener {
+                if (weightInput.editText?.text.toString().isNotEmpty() && libs.text != "kg") {
+                    val currentLbs = weightInput.editText?.text.toString().toFloat()
+                    weightKg = lbsToKg(currentLbs)
+                    weightInput.editText?.setText("%.2f".format(weightKg))
+                    weightInput.hint = "Weight (kg)"  // Set suffix
+
+                    changeUnitBg(this@BmrAct, kg, libs)
+                }
+            }
+
+            libs.setOnClickListener {
+                if (weightInput.editText?.text.toString().isNotEmpty() && kg.text != "lbs") {
+                    val displayLbs = kgToLbs(weightKg)
+                    weightInput.editText?.setText("%.2f".format(displayLbs))
+                    weightInput.hint = "Weight (lbs)"  // Set suffix
+
+                    changeUnitBg(this@BmrAct, libs, kg)
+                }
             }
 
             // Listeners Click
@@ -125,6 +165,39 @@ class BmrAct : AppCompatActivity() {
 
             }
 
+            nextBtn.setOnClickListener {
+                var intent= Intent(this@BmrAct, ResultAct::class.java)
+                intent.putExtra("name","Basal Metabolic Rate")
+                startActivity(intent)
+            }
+
+            heightInput.editText?.setOnClickListener {
+                android.app.AlertDialog.Builder(this@BmrAct)
+                    .setTitle("Edit Height")
+                    .setMessage("Are you modify your height?.")
+                    .setPositiveButton("OK") { dialog, _ ->
+                        dialog.dismiss()
+                        moveAct(this@BmrAct, HeightScreen::class.java)
+                    }
+                    .setNegativeButton("Cancel") { dialog, _ ->
+                        dialog.dismiss()
+                    }
+                    .show()
+            }
+
+            weightInput.editText?.setOnClickListener {
+                android.app.AlertDialog.Builder(this@BmrAct)
+                    .setTitle("Edit Weight")
+                    .setMessage("Are you modify your weight?.")
+                    .setPositiveButton("OK") { dialog, _ ->
+                        dialog.dismiss()
+                        moveAct(this@BmrAct, WeightScreen::class.java)
+                    }
+                    .setNegativeButton("Cancel") { dialog, _ ->
+                        dialog.dismiss()
+                    }
+                    .show()
+            }
 
         }
     }

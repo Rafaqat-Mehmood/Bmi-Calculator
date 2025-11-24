@@ -7,40 +7,157 @@
     android:layout_height="match_parent"
     tools:context=".activity.ResultAct">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/splash_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/backIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/back_arrow"
+        app:layout_constraintVertical_bias="0.03"
+        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
     <TextView
         android:id="@+id/bmi"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Body Max Index"
+        android:text="Body Mass Index"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="@color/common_color"
+        android:textSize="17sp"
+        android:singleLine="true"
+        app:layout_constraintStart_toEndOf="@id/backIcon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/backIcon"
+        app:layout_constraintBottom_toBottomOf="@id/backIcon"
+        app:layout_constraintVertical_bias="0.5"
+        android:paddingStart="@dimen/_50sdp"
+        android:gravity="center|start">
+    </TextView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_80sdp"
+        app:layout_constraintTop_toBottomOf="@id/backIcon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        android:gravity="center">
-    </TextView>
-    <TextView
-        android:id="@+id/result"
+        android:layout_marginStart="@dimen/_40sdp"
+        android:layout_marginEnd="@dimen/_40sdp"
+        app:layout_constraintVertical_bias="0.05"
+        app:strokeColor="@color/white"
+        app:strokeWidth="0.1dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_18sdp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Result  :"
+                    android:textColor="@color/common_color"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:layout_weight="1"
+                    android:gravity="center|end"
+                    android:paddingEnd="@dimen/_5sdp"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:id="@+id/result"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="18.34"
+                    android:layout_weight="1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/bmi"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    android:gravity="center|start">
+                </TextView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Status  :"
+                    android:textColor="@color/common_color"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:layout_weight="1"
+                    android:gravity="center|end"
+                    android:paddingEnd="@dimen/_5sdp"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:id="@+id/concolusion"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="UnderWeight"
+                    android:layout_weight="1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/bmi"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    android:gravity="center|start">
+                </TextView>
+            </LinearLayout>
+        </LinearLayout>
+
+<!--    <TextView-->
+<!--        android:id="@+id/consolusion"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Under Weight"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/result"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.0"-->
+<!--        android:gravity="center">-->
+<!--    </TextView>-->
+    </com.google.android.material.card.MaterialCardView>
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="18.34"
+        android:layout_height="100dp"
+        android:src="@drawable/rang_icon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bmi"
+        app:layout_constraintTop_toBottomOf="@id/card"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        android:gravity="center">
-    </TextView>
-    <TextView
-        android:id="@+id/consolusion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Under Weight"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/result"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        android:gravity="center">
-    </TextView>
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintVertical_bias="0.0">
+
+    </ImageView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -122,7 +122,7 @@
             android:textColor="@color/white"
             android:background="@drawable/ftcm_fill_bg"
             android:fontFamily="@font/poppins_bold_italic"
-            android:text="libs">
+            android:text="lbs">
 
         </TextView>
     </LinearLayout>
