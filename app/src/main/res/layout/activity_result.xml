@@ -106,6 +106,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/status"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="Status  :"
@@ -118,7 +119,7 @@
                     android:layout_gravity="center"/>
 
                 <TextView
-                    android:id="@+id/concolusion"
+                    android:id="@+id/resultStatus"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="UnderWeight"
@@ -147,6 +148,7 @@
 <!--    </TextView>-->
     </com.google.android.material.card.MaterialCardView>
     <ImageView
+        android:id="@+id/icon"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:src="@drawable/rang_icon"

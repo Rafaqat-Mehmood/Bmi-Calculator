@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.learnandroiddevelopmentbatch2"
+    namespace = "com.bmi.bmrcalculator"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.learnandroiddevelopmentbatch2"
+        applicationId = "com.bmi.bmrcalculator"
         minSdk = 23
         targetSdk = 36
         versionCode = 1

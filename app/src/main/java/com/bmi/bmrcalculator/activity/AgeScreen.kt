@@ -1,0 +1,58 @@
+package com.bmi.bmrcalculator.activity
+
+import android.os.Bundle
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import com.bmi.bmrcalculator.R
+import com.bmi.bmrcalculator.activity.HeightScreen.Companion.storeValue
+import com.bmi.bmrcalculator.databinding.ActivityAgeScreenBinding
+import com.bmi.bmrcalculator.util.Constant
+import com.bmi.bmrcalculator.util.moveAct
+
+class AgeScreen : AppCompatActivity() {
+    private lateinit var binding: ActivityAgeScreenBinding
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        binding= ActivityAgeScreenBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+
+        val pref = getSharedPreferences("DbRef", MODE_PRIVATE)
+        // Create editor
+        val editor = pref.edit()
+
+
+        binding.apply {
+
+            scale.setStartingPoint(25f)
+            ageValue.text="25"
+            scale.setUpdateListener { result ->
+                ageValue.text = "%.0f".format(result)
+                storeValue=ageValue.text.toString().toFloat()
+
+            }
+
+            backIcon.setOnClickListener {
+                finish()
+            }
+
+            nextBtn.setOnClickListener {it->
+                editor.putInt(Constant.ageValueKey,ageValue.text.toString().toInt())
+                editor.apply()
+                moveAct(this@AgeScreen, Dashboard::class.java)
+            }
+
+
+        }
+
+
+
+    }
+}

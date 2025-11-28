@@ -234,7 +234,7 @@
             android:layout_marginStart="10dp"
             android:textColor="@color/common__light_color"
             android:fontFamily="@font/poppins_bold_italic"
-            android:text="Kg">
+            android:text="kg">
 
         </TextView>
         <TextView

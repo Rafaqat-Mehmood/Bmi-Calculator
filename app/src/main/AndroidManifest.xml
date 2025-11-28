@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -11,6 +15,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LearnAndroidDevelopmentBatch2">
+        <activity
+            android:name=".activity.PrivacyPolicy"
+            android:exported="false" />
         <activity
             android:name=".activity.ResultAct"
             android:exported="false" />
@@ -33,15 +40,6 @@
             android:exported="false" />
         <activity
             android:name=".activity.GenderAct"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".activity.Dashboard"
             android:exported="true">
 <!--            <intent-filter>-->
 <!--                <action android:name="android.intent.action.MAIN" />-->
@@ -50,10 +48,19 @@
 <!--            </intent-filter>-->
         </activity>
         <activity
-            android:name=".activity.AgeScreen"
-            android:exported="true" >
+            android:name=".activity.Dashboard"
+            android:exported="true">
 
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
+        <activity
+            android:name=".activity.AgeScreen"
+            android:exported="true"></activity>
         <activity
             android:name=".activity.WeightScreen"
             android:exported="false" />
@@ -73,12 +80,12 @@
             android:exported="true"
             android:screenOrientation="portrait">
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
+             <intent-filter>
+             <action android:name="android.intent.action.MAIN" />
 
 
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
+             <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
         </activity>
         <activity
             android:name=".activity.MainActivity"

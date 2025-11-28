@@ -115,6 +115,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/notification"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_15sdp"
@@ -140,6 +141,7 @@
                         android:fontFamily="@font/poppins_medium"/>
                 </LinearLayout>
                 <LinearLayout
+                    android:id="@+id/rateUs"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_15sdp"
@@ -165,6 +167,7 @@
                         android:fontFamily="@font/poppins_medium"/>
                 </LinearLayout>
                 <LinearLayout
+                    android:id="@+id/shareApp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_15sdp"
@@ -190,6 +193,7 @@
                         android:fontFamily="@font/poppins_medium"/>
                 </LinearLayout>
                 <LinearLayout
+                    android:id="@+id/privacyPolicy"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_15sdp"
@@ -215,6 +219,7 @@
                         android:fontFamily="@font/poppins_medium"/>
                 </LinearLayout>
                 <LinearLayout
+                    android:id="@+id/moreApps"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_15sdp"
